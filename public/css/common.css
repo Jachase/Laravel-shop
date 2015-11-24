@@ -1,0 +1,239 @@
+body {
+    color: #666;
+    font-size: 12px;
+    line-height: 160%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    line-height: 1.7;
+    margin-top: 0;
+}
+
+ul, ol {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #155faa;
+    cursor: pointer;
+}
+a:hover {
+    color: #499ef3;
+    text-decoration: none;
+}
+a:focus {
+    outline: 0 none !important;
+}
+
+
+#main-container {
+    height: 100%;
+    padding-top: 60px;
+    width: 100%;
+}
+
+#header {
+    background-color: #f4726d;
+    bottom: auto;
+    height: 60px;
+    left: 0;
+    padding-top: 12px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 10;
+}
+
+/*article*/
+.contont-wrap {
+    background-color: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.main-content {
+    border-right: 1px solid #e6e6e6;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.nav {
+    padding-left: 15px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.article-list {
+    padding: 0 20px;
+}
+
+.item-list > div +div {
+    border-top: 1px solid #f5f5f5;
+}
+
+.article-list .art-item {
+    min-height: 45px;
+    padding: 10px 0 14px 50px;
+    position: relative;
+    z-index: 0;
+}
+
+.article-list .art-item a {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.article-list .art-item >.user-name {
+    position: absolute;
+    left: 0;
+    top: 18px;
+}
+
+
+.article-list .art-item h4 {
+    font-size: 14px;
+    margin-bottom: 3px;
+    padding-right: 20px;
+    word-wrap:break-word;
+}
+
+.article-list .art-item p {
+    color: #999;
+    margin: 0;
+}
+
+.article-list .art-item p span{
+    font-size: 12px;
+    font-weight: 400;
+    color: #999;
+}
+
+.user-name img {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+}
+
+.user-name {
+    line-height: 20px;
+}
+
+/*article detail*/
+.article-detail {
+    margin-bottom: 30px;
+    padding: 10px 20px 0;
+}
+
+.rticle-detail > .mod-head {
+    border-bottom: 1px solid #f5f5f5;
+    padding-bottom: 14px;
+    position: relative;
+}
+
+.article-detail .mod-head h1 {
+    font-size: 20px;
+    line-height: 30px;
+    margin: 0;
+    max-width: 500px;
+}
+
+.article-detail .content {
+    padding: 10px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.article-detail .meta {
+    font-size: 12px;
+    line-height: 20px;
+    min-height: 20px;
+    color: #999;
+}
+
+.article-detail .meta a {
+    color: #999;
+}
+
+.article-detail .add-comment {
+    cursor: pointer;
+}
+
+.article-detail .more-operate {
+    margin: 0 !important;
+    position: relative;
+}
+
+.article-detail .more-operate > a{
+    margin-left: 15px;
+}
+
+.art-dropdown {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #ccc;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    display: none;
+    left: 0;
+    min-width: 110px;
+    position: absolute;
+    top: 105%;
+    width: 100%;
+    z-index: 9999;
+}
+
+.art-dropdown.pull-right {
+    left: auto;
+    right: 0;
+}
+
+.art-dropdown.shareout {
+    top: 100%;
+    width: 130px;
+}
+
+.art-dropdown p {
+    margin: 0;
+    padding: 5px 10px;
+}
+
+.art-dropdown .art-dropdown-list li{
+
+    border-top: 1px solid #f0f0f0;
+    cursor: pointer;
+    font-size: 14px;
+    height: 42px;
+    line-height: 42px;
+    padding: 0 10px !important;
+    position: relative;
+    text-align: left;
+}
+
+.art-dropdown .art-dropdown-list li:first-child {
+    border-top: medium none;
+}
+
+.art-dropdown .art-dropdown-list li:hover, .art-dropdown .art-dropdown-list li:active {
+    background-color: #f0f0f0;
+}
+
+.art-dropdown .art-dropdown-list li a {
+    color: #666;
+    display: block;
+}
+
+.art-dropdown.shareout i {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    color: #fff !important;
+    display: inline-block;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    width: 24px;
+}
+

@@ -1,0 +1,75 @@
+body {
+    color: #666;
+    font-size: 12px;
+    line-height: 160%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    line-height: 1.7;
+    margin-top: 0;
+}
+
+ul, ol {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+
+}
+
+a {
+    color: #155faa;
+    cursor: pointer;
+}
+a:hover {
+    color: #499ef3;
+    text-decoration: none;
+}
+a:focus {
+    outline: 0 none !important;
+}
+.place {
+    height: 40px;
+}
+.place span {
+    float: left;
+    font-weight: bold;
+    line-height: 40px;
+    margin-left: 12px;
+}
+.place ul li {
+    background: rgba(0, 0, 0, 0) url("../images/rlist.gif") no-repeat scroll right center;
+    float: left;
+    line-height: 40px;
+    padding-left:7px;
+    padding-right: 12px;
+}
+.place ul li:last-child {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+}
+
+/*goodslist*/
+.search {
+    line-height: 40px;
+    height:40px;
+    border-bottom: #eee 1px solid;
+    padding-left: 10px;
+}
+
+.goods-list {
+    margin-top:5px;
+}
+.goods-list tr td,th {
+    text-align: center;
+}
+.goods-list .item div{
+    border-right: #eee 1px solid;
+}
+
+.color-red {
+    color: red;
+}
+
+.color-green {
+    color: green;
+}
