@@ -4,17 +4,9 @@
     <link rel="stylesheet" href="{{ asset('css/datetimepicker.css') }}">
     @overwrite
 @section("content")
-    <div class="place bg-info">
-        <span>位置</span>
-        <ul>
-            <li><a href="javascript:;">首页</a></li>
-            <li><a href="javascript:;">商品管理</a></li>
-            <li>添加分类</li>
-        </ul>
-    </div>
     <div class="container">
         <ul class="nav nav-tabs">
-            <li role="presentation" class="active"><a href="#">添加分类</a></li>
+            <li role="presentation" class="active"><a href="#">添加类型</a></li>
         </ul>
         <p></p>
         <div class="row">
@@ -101,23 +93,7 @@
     <script type="text/javascript" src="{{ asset('js/bootstrap-datetimepicker.min.js') }}"></script>
     <script type="text/javascript">
         $(function(){
-            checkPromote('is_promote');
 
-            $("input[name='is_promote']").on('click', function(){
-                checkPromote(this.name);
-            });
-
-            function checkPromote(name){
-                if( $("input[name='"+name+"']:checked").val() == 1 ) {
-                    $('.promote-start-date').datetimepicker();
-                    $('.promote-end-date').datetimepicker();
-                    $('.promote').show();
-                } else {
-                    $('.promote').hide();
-                    $('.promote-start-date').datetimepicker('remove');
-                    $('.promote-end-date').datetimepicker('remove');
-                }
-            }
         });
 
     </script>

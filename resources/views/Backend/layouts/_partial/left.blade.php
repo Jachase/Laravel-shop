@@ -1,7 +1,7 @@
 @extends("Backend.layouts.layouts")
 @section("content")
 <div id="container-left" style="background:#f0f9fd;">
-    <div class="lefttop"><span></span>通讯录</div>
+    <div class="lefttop"></div>
 
     <dl class="leftmenu">
 
@@ -10,11 +10,11 @@
                 <span><img src="{{ asset("backend/images/leftico01.png") }}"/></span>商品管理
             </div>
             <ul class="menuson">
-                <li class="active"><cite></cite><a href="{{ url('goods/list') }}" target="rightFrame">商品列表</a><i></i></li>
-                <li><cite></cite><a href="{{ url('goods/index') }}" target="rightFrame">添加新商品</a><i></i></li>
-                <li><cite></cite><a href="javascript:;" target="rightFrame">商品分类</a><i></i></li>
-                <li><cite></cite><a href="javascript:;" target="rightFrame">商品品牌</a><i></i></li>
-                <li><cite></cite><a href="javascript:;" target="rightFrame">商品类型</a><i></i></li>
+                <li class="active"><cite></cite><a href="{{ url('goods') }}" target="rightFrame">商品列表</a><i></i></li>
+                <li><cite></cite><a href="{{ url('goods/create') }}" target="rightFrame">添加新商品</a><i></i></li>
+                <li><cite></cite><a href="{{ url('category') }}" target="rightFrame">商品分类</a><i></i></li>
+                <li><cite></cite><a href="{{ url('brand') }}" target="rightFrame">商品品牌</a><i></i></li>
+                <li><cite></cite><a href="{{ url('goodstype') }}" target="rightFrame">商品类型</a><i></i></li>
                 <li><cite></cite><a href="javascript:;" target="rightFrame">生成商品代码</a><i></i></li>
                 <li><cite></cite><a href="javascript:;" target="rightFrame">标签管理</a><i></i></li>
                 <li><cite></cite><a href="javascript:;" target="rightFrame">虚拟商品列表</a><i></i></li>

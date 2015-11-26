@@ -2,6 +2,6 @@
 .env.*.php
 .env.php
 .env
-vendor
-resources/assets/packages
-storage
+/vendor
+/resources/assets/packages
+/storage

@@ -5,12 +5,11 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>{{ $title or 'Laravel' }}</title>
-
 	<link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 {{--	<link href="{{ asset('css/common.css') }}" rel="stylesheet">--}}
-	@yield("link")
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+	@yield("link")
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -26,6 +25,11 @@
 	<!-- Scripts -->
 	<script src="{{ asset('js/jquery.min.js') }}"></script>
 	<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+	<script type="text/javascript">
+		$().ready(function(){
+			$('.flash-message').delay(5000).slideUp();
+		});
+	</script>
 	@show
 </body>
 </html>

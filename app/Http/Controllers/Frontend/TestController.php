@@ -18,5 +18,10 @@ class TestController extends Controller
 
     public function getIndex()
     {
+//        Admin::create([
+//            'name'=>'jachase',
+//            'email'=>'jachase@yumcircle.cc',
+//            'password'=>bcrypt('670991')
+//        ]);
     }
 }

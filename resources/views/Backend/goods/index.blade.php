@@ -1,13 +1,5 @@
 @extends("Backend.layouts.master")
 @section("content")
-    <div class="place bg-info">
-        <span>位置</span>
-        <ul>
-            <li><a href="javascript:;">首页</a></li>
-            <li><a href="javascript:;">商品管理</a></li>
-            <li>商品列表</li>
-        </ul>
-    </div>
     <div class="container">
         <div class="row search">
             <form class="form-inline">
@@ -72,23 +64,23 @@
                     <td>ECS000032</td>
                     <td>3010.00</td>
                     <td>
-                        <span class="glyphicon glyphicon-ok color-green"></span>
+                        <span class="glyphicon glyphicon-ok text-success"></span>
                     </td>
                     <td>
-                        <span class="glyphicon glyphicon-remove color-red"></span>
+                        <span class="glyphicon glyphicon-remove text-danger"></span>
                     </td>
                     <td>
-                        <span class="glyphicon glyphicon-remove color-red"></span>
+                        <span class="glyphicon glyphicon-remove text-danger"></span>
                     </td>
                     <td>
-                        <span class="glyphicon glyphicon-ok color-green"></span>
+                        <span class="glyphicon glyphicon-ok text-success"></span>
                     </td>
                     <td>100</td>
                     <td>5</td>
                     <td>
                         <a href=""><span class="glyphicon glyphicon-search"></span></a>  |
                         <a href=""><span class="glyphicon glyphicon-edit"></span></a> |
-                        <a href=""><span class="glyphicon glyphicon-remove"></span></a>
+                        <a href=""><span class="glyphicon glyphicon-trash"></span></a>
                     </td>
                 </tr>
                 @endfor

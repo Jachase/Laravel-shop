@@ -1,10 +1,14 @@
 <?php namespace App\Http\LogicService;
-class GoodsCategoryService extends BaseLogicService {
+use App\Exceptions\InvalidParamsExceptions;
+use App\Helpers\ErrorCode;
+use App\Models\Category;
+
+class CategoryService extends BaseLogicService {
 
     private static $_instance;
 
     /**
-     * @return GoodsCategoryService
+     * @return CategoryService
      */
     public static function getInstance()
     {
@@ -16,11 +20,32 @@ class GoodsCategoryService extends BaseLogicService {
         return self::$_instance;
     }
 
-    public function createGoodsCategory($data)
+    public function getCategorySelectTree($pid=0)
     {
-        $data = filter_var_array($data, [
-            ''
-        ]);
+        $query = Category::show();
+        if($pid > 0)
+            $query->child($pid);
+        $data = $query->get();
+
+        if($data->isEmpty()) return [];
+
+        return $this->_formatTree($data->toArray());
+
     }
 
+    private function _formatTree($data, $pid=0)
+    {
+        $tree = [];
+
+        foreach($data as $item) {
+            if($item['parent_id'] === $pid) {
+                $tree[$item['id']] = $item;
+            }
+            if(isset($tree[$item['id']]) ) {
+                $tree[$item['id']]['child'] = $this->_formatTree($data, $item['id']);
+            }
+        }
+
+        return $tree;
+    }
 }

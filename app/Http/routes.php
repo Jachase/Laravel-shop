@@ -41,9 +41,15 @@ Route::group([
     ], function(){
         Route::get('/', 'DashboardController@getIndex');
         Route::controller('dash', 'DashboardController');
-        Route::controller('goods', 'GoodsController');
-        Route::controller('category', 'CategoryController');
-        Route::controller('goodstype', 'GoodstypeController');
+//        Route::controller('goods', 'GoodsController');
+        Route::resources([
+            'category' => 'CategoryController',
+            'goods' => 'GoodsController',
+            'brand' => 'BrandController',
+            'goodstype' => 'GoodstypeController'
+        ]);
+//        Route::controller('brand', 'BrandController');
+//        Route::controller('goodstype', 'GoodstypeController');
     });
     if(file_exists(app_path('Http/Controllers/Backend/TestController.php')))
     {

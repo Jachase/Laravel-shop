@@ -28,6 +28,26 @@ a:hover {
 a:focus {
     outline: 0 none !important;
 }
+
+img.thumbnail-sm {
+    width: 40px;
+}
+
+table.fix-table tr td {
+    vertical-align:middle;
+}
+
+.fix-input {
+    padding-top: 6px;
+}
+
+.fix-input span {
+    margin-right: 5px;
+}
+.fix-submit {
+    margin-left:50px;
+}
+
 .place {
     height: 40px;
 }
@@ -59,17 +79,9 @@ a:focus {
 .goods-list {
     margin-top:5px;
 }
-.goods-list tr td,th {
+.goods-list tr td,.goods-list tr th {
     text-align: center;
 }
 .goods-list .item div{
     border-right: #eee 1px solid;
-}
-
-.color-red {
-    color: red;
-}
-
-.color-green {
-    color: green;
 }

@@ -1,24 +1,19 @@
 @extends("Backend.layouts.master")
 @section("content")
-    <div class="place bg-info">
-        <span>位置</span>
-        <ul>
-            <li><a href="javascript:;">首页</a></li>
-            <li><a href="javascript:;">商品管理</a></li>
-            <li>商品分类</li>
-        </ul>
-    </div>
     <div class="container">
-        <div class="row">
-            <a class="btn btn-primary" href="{{ url('') }}" role="button">添 加</a>
-        </div>
         <div class="row search">
-            <form class="form-inline">
+            <div class="col-md-1">
+                <a class="btn btn-primary" href="{{ url('brand/create') }}" role="button">添 加</a>
+            </div>
+            <div class="col-md-8">
+                <form class="form-inline">
                     <span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;
                     <input type="text" class="form-control input-sm" name="name" placeholder="ID or name">
                     <button type="submit" class="btn btn-primary btn-sm">&nbsp;搜&nbsp;索&nbsp; </button>
-            </form>
+                </form>
+            </div>
         </div>
+
         <form>
             <table class="table table-striped table-hover content-main goods-list">
                 <tr>

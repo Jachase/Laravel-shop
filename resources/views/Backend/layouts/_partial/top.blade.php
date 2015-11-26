@@ -37,12 +37,13 @@
             {{--<li><a href="#">关于</a></li>--}}
             <li><a href="{{ url('auth/logout') }}" target="_parent">退出</a></li>
         </ul>
-
+        @if(!empty(Auth::admin()->user()))
         <div class="user">
             <span>{{ Auth::admin()->user()->name }}</span>
             <i>消息</i>
             <b>{{  $messageCount or '0' }}</b>
         </div>
+        @endif
 
     </div>
 @overwrite

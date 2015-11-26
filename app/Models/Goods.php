@@ -60,9 +60,9 @@ class Goods extends BaseModel
         $model->give_integral = $data['give_integral'];
         $model->rank_integral = $data['rank_integral'];
 
+        if(!$model->save()) {
+        }
 
-
-
-
+        return $model->id;
     }
 }

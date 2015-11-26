@@ -4,247 +4,106 @@
     <link rel="stylesheet" href="{{ asset('css/datetimepicker.css') }}">
     @overwrite
 @section("content")
-    <div class="place bg-info">
-        <span>位置</span>
-        <ul>
-            <li><a href="javascript:;">首页</a></li>
-            <li><a href="javascript:;">商品管理</a></li>
-            <li>添加商品</li>
-        </ul>
-    </div>
     <div class="container">
         <ul class="nav nav-tabs">
-            <li role="presentation" class="active"><a href="#">添加商品</a></li>
+            <li role="presentation" class="active"><a href="#">添加分类</a></li>
         </ul>
         <p></p>
         <div class="row">
-            <form class="form-horizontal">
+            @if(!empty($errors))
+            {{ $errors->first()}}
+            @endif
+            <form class="form-horizontal" action="{{ url('category') }}" method="post">
+                {{ csrf_field() }}
                 <div class="form-group">
-                    <label class="control-label col-md-1">商品名称</label>
-                    <div class="col-md-6">
-                        <div class="col-md-11 input-group">
-                            <input type="text" class="form-control" name="name">
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-th"></span>
-                            </span>
-                        </div>
+                    <label class="control-label col-md-1">父级分类</label>
+                    <div class="col-md-5 fix-input">
+                        <select name="parent_id">
+                            <option value="0">顶级分类</option>
+                            @foreach($category as $item)
+                                <option value="{{ $item['id'] }}">
+                                    {{ $item['name'] }}
+                                </option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-md-1">上传图片</label>
-                    <div class="col-md-8 fix-input">
-                        <input type="file">
+                    <label class="control-label col-md-1">分类名称</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" name="cat_name" value="{{ old('cat_name') }}">
                     </div>
                 </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-1">分类</label>
-                        <div class="col-md-4 fix-input">
-                            <select name="cat_id">
-                                <option>全部分类</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-1">类型</label>
-                        <div class="col-md-4 fix-input">
-                            <select name="goods_type">
-                                <option>全部类型</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-1">品牌</label>
-                        <div class="col-md-4 fix-input">
-                            <select name="brand_id">
-                                <option>全部品牌</option>
-                            </select>
-                        </div>
-                    </div>
-                {{--</div>--}}
                 <div class="form-group">
                     <label class="control-label col-md-1">关键字</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" name="keywords">
+                        <input type="text" class="form-control" name="keywords" value="{{ old('keywords') }}">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-md-1">商品摘要</label>
-                    <div class="col-md-6">
-                        <textarea class="form-control" name="goods_brief" rows="3"></textarea>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-md-1">商品介绍</label>
-                    <div class="col-md-6">
-                        <textarea class="form-control" name="goods_desc" rows="6"></textarea>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-md-1">供应者</label>
-                    <div class="col-md-4">
-                        <input type="text" class="form-control" name="provider_name">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-md-1">市场价格</label>
-                    <div class="col-md-5">
-                        <div class="col-md-4 input-group">
-                            <span class="input-group-addon">￥</span>
-                            <input type="text" class="form-control" name="market_price">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-md-1">本店价格</label>
-                    <div class="col-md-5">
-                        <div class="col-md-4 input-group">
-                            <span class="input-group-addon">￥</span>
-                            <input type="text" class="form-control" name="shop_price">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label col-md-1">库存数量</label>
-                    <div class="col-md-5">
-                        <div class="col-md-4 input-group">
-                            <input type="text" class="form-control" name="goods_number">
-                            <span class="input-group-addon">件</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-md-1">商品重量</label>
-                    <div class="col-md-5">
-                        <div class="col-md-4 input-group">
-                            <input type="text" class="form-control" name="goods_weight">
-                            <span class="input-group-addon">kg</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-md-1">库存警告</label>
-                    <div class="col-md-5">
-                        <div class="col-md-4 input-group">
-                            <input type="text" class="form-control" name="warn_number">
-                            <span class="input-group-addon">件</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-md-1">实物?</label>
-                    <div class="col-md-7 fix-input">
-                        <input type="radio" name="is_real" value="1" checked><span>是&nbsp;</span>
-                        <input type="radio" name="is_real" value="0"><span>否 </span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-md-1">开放销售</label>
-                    <div class="col-md-7 fix-input">
-                        <input type="radio" name="is_on_sale" value="1" checked><span>是&nbsp;</span>
-                        <input type="radio" name="is_on_sale" value="0"><span>否 </span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-md-1">单独销售</label>
-                    <div class="col-md-7 fix-input">
-                        <input type="radio" name="is_alone_sale" value="1" checked><span>是&nbsp;</span>
-                        <input type="radio" name="is_alone_sale" value="0"><span>否 </span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-md-1">是否送货</label>
-                    <div class="col-md-7 fix-input">
-                        <input type="radio" name="is_shipping" value="1" checked><span>是&nbsp;</span>
-                        <input type="radio" name="is_shipping" value="0"><span>否 </span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-md-1">积分抵扣</label>
+                    <label class="control-label col-md-1">计量单位</label>
                     <div class="col-md-2">
-                        <input type="text" class="form-control" name="integral">
+                        <input type="text" class="form-control" name="measure_unit" value="{{ old('measure_unit') }}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-1">简介</label>
+                    <div class="col-md-6">
+                        <textarea class="form-control" name="cat_desc" rows="6">{{ old('cat_desc') }}</textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-1">模板文件</label>
+                    <div class="col-md-4">
+                        <input class="form-control" type="text" name="template_file" value="{{ old('template_file') }}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-1">分级</label>
+                    <div class="col-md-1">
+                        <input type="radio" name="grade" value="1" @if(old('grade')===1 or is_null(old('grade')))checked @endif><span>是&nbsp;</span>
+                        <input type="radio" name="grade" value="0" @if(old('grade')===0)checked @endif><span>否 </span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-1">排序</label>
                     <div class="col-md-1">
-                        <input type="text" name="sort_order" value="100" class="form-control">
+                        <input type="text" class="form-control" name="sort_order" value="{{ old('sort_order', 50)}}" >
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-md-1">精品</label>
+                    <label class="control-label col-md-1">导航显示</label>
                     <div class="col-md-11 fix-input">
-                        <input type="radio" name="is_best" value="1" checked><span>是&nbsp;</span>
-                        <input type="radio" name="is_best" value="0"><span>否 </span>
+                        <input type="radio" name="show_in_nav" value="1" @if(old('show_in_nav')===1 or is_null(old('show_in_nav')))checked @endif><span>是&nbsp;</span>
+                        <input type="radio" name="show_in_nav" value="0" @if(old('show_in_nav')===0)checked @endif ><span>否 </span>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-md-1">新品</label>
+                    <label class="control-label col-md-1">前台显示</label>
                     <div class="col-md-7 fix-input">
-                        <input type="radio" name="is_new" value="1" checked><span>是&nbsp;</span>
-                        <input type="radio" name="is_new" value="0"><span>否 </span>
+                        <input type="radio" name="is_show" value="1" @if(old('is_show')===1 or is_null(old('is_show')))checked @endif><span>是&nbsp;</span>
+                        <input type="radio" name="is_show" value="0" @if(old('os_show')===0)checked @endif><span>否 </span>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label col-md-1">热销</label>
-                    <div class="col-md-7 fix-input">
-                        <input type="radio" name="is_hot" value="1" checked><span>是&nbsp;</span>
-                        <input type="radio" name="is_hot" value="0"><span>否 </span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-md-1">是否促销</label>
-                    <div class="col-md-7 fix-input">
-                        <input type="radio" name="is_promote" value="1"><span>是&nbsp;</span>
-                        <input type="radio" name="is_promote" value="0" checked><span>否&nbsp;</span>
-                    </div>
-                </div>
-                <div class="form-group promote" style="display: none">
-                    <label class="control-label col-md-1">促销价格</label>
-                    <div class="col-md-11">
-                        <div class="col-md-2 input-group">
-                            <span class="input-group-addon">￥</span>
-                            <input type="text" class="form-control" name="promote_price">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group form-inline promote" style="display: none">
-                    <label class="control-label col-md-1">促销时间</label>
-                    <div class="col-md-11">
-                        <div class="col-md-3 input-group date promote-start-date">
-                            <input type="text" class="form-control" name="promote_start_date" placeholder="开始时间" readonly>
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-remove"></span>
-                            </span>
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                            </span>
-                        </div>
-                        <span>至</span>
-                        <div class="col-md-3 input-group date promote-end-date">
-                            <input type="text" class="form-control" name="promote_end_date" placeholder="结束时间" readonly>
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-remove"></span>
-                            </span>
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-md-1">积分赠送</label>
-                    <div class="col-md-2">
-                        <input type="text" class="form-control" name="give_integral">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-md-1">备注</label>
+                    <label class="control-label col-md-1">筛选属性</label>
                     <div class="col-md-6">
-                        <textarea class="form-control" name="seller_note" rows="3"></textarea>
+                        <input class="form-control" type="text" name="filter_attr" value="{{ old('filter_attr') }}">
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">提交商品</button>
+                <div class="form-group">
+                    <label class="control-label col-md-1">&nbsp;</label>
+                    <div class="col-md-4">
+                        <input type="checkbox" name="continue" value="1" checked>继续添加分类信息
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <button type="submit" class="btn btn-primary fix-submit">提&nbsp;交</button>&nbsp;
+
+                    </div>
+                </div>
 
             </form>
         </div>
@@ -255,23 +114,6 @@
     <script type="text/javascript" src="{{ asset('js/bootstrap-datetimepicker.min.js') }}"></script>
     <script type="text/javascript">
         $(function(){
-            checkPromote('is_promote');
-
-            $("input[name='is_promote']").on('click', function(){
-                checkPromote(this.name);
-            });
-
-            function checkPromote(name){
-                if( $("input[name='"+name+"']:checked").val() == 1 ) {
-                    $('.promote-start-date').datetimepicker();
-                    $('.promote-end-date').datetimepicker();
-                    $('.promote').show();
-                } else {
-                    $('.promote').hide();
-                    $('.promote-start-date').datetimepicker('remove');
-                    $('.promote-end-date').datetimepicker('remove');
-                }
-            }
         });
 
     </script>
